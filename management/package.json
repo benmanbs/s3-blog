@@ -1,0 +1,9 @@
+{
+  "name": "management-site",
+  "version": "0.0.1",
+  "description": "A manegement site for an S3-backed blog",
+  "main": "index.js",
+  "repository": "https://github.com/benmanbs/s3-blog",
+  "author": "Benjamin Shai",
+  "license": "MIT"
+}
