@@ -7,16 +7,24 @@
 import express from "express";
 import PropertiesReader from "properties-reader";
 
+// routes
 import apiController from "./controllers/api";
 import staticController from "./controllers/static";
 import buildController from "./controllers/build";
+
+// database
+import dbSetup from "./database/setup";
 
 const app = express();
 
 // parse in properties
 let propertiesDir = __dirname.replace("/src", "");
 const properties = PropertiesReader(`${propertiesDir}/config.properties`);
-console.log(properties.get("some.path"));
+
+// set up the database
+if (!dbSetup.exists()) {
+  dbSetup.create();
+}
 
 // Set up API routes
 app.use("/api", apiController);

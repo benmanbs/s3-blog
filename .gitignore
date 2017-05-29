@@ -1,6 +1,9 @@
 # Properties file that contains all configuraion options
 config.properties
 
+# sqlite database
+database.sqlite
+
 # IntelliJ
 .idea
 
