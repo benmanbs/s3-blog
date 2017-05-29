@@ -1,4 +1,7 @@
-IntelliJ
+# Properties file that contains all configuraion options
+config.properties
+
+# IntelliJ
 .idea
 
 # Logs
@@ -38,10 +41,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-
-# Typescript v1 declaration files
-typings/
-dist
 
 # Optional npm cache directory
 .npm
