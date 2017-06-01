@@ -11,7 +11,9 @@
   "dependencies": {
     "babel-cli": "^6.24.0",
     "babel-preset-env": "^1.2.2",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "properties-reader": "^0.0.15"
+    "properties-reader": "^0.0.15",
+    "sqlite3": "^3.1.8"
   }
 }
