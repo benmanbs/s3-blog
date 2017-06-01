@@ -11,27 +11,24 @@ import sqlite from "sqlite3";
 import fs from "fs";
 
 const databasePath = 'database.sqlite';
+let db;
 
 const createDatabase = () => {
-  const db = new sqlite.Database(databasePath);
-  fs.readFile(`${__dirname}/scripts/pages.sql`, 'utf8', function(err, data) {
-    if (err) {
-      throw err;
-    }
-    db.run(data);
-  });
-  fs.readFile(`${__dirname}/scripts/posts.sql`, 'utf8', function(err, data) {
-    if (err) {
-      throw err;
-    }
-    db.run(data);
-  });
+  db = new sqlite.Database(databasePath);
+  let data = fs.readFileSync(`${__dirname}/scripts/pages.sql`, 'utf8');
+  db.run(data);
+  data = fs.readFileSync(`${__dirname}/scripts/posts.sql`, 'utf8');
+  db.run(data);
+  return db;
 };
 
 export default {
 
-  exists: () => fs.existsSync('./' + databasePath),
-
-  create: createDatabase
+  getDatabase: () => {
+    if (!fs.existsSync('./' + databasePath)) {
+      return createDatabase();
+    }
+    return new sqlite.Database(databasePath);
+  }
 
 }

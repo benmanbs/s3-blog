@@ -5,6 +5,7 @@
  */
 
 import express from "express";
+import bodyParser from "body-parser";
 import PropertiesReader from "properties-reader";
 
 // routes
@@ -12,25 +13,20 @@ import apiController from "./controllers/api";
 import staticController from "./controllers/static";
 import buildController from "./controllers/build";
 
-// database
-import dbSetup from "./database/setup";
-
 const app = express();
 
 // parse in properties
 let propertiesDir = __dirname.replace("/src", "");
 const properties = PropertiesReader(`${propertiesDir}/config.properties`);
 
-// set up the database
-if (!dbSetup.exists()) {
-  dbSetup.create();
-}
+// set this shit up for parsing from the body
+app.use(bodyParser.urlencoded({extended: true}))
 
 // Set up API routes
 app.use("/api", apiController);
 
 // Set up static site routes
-app.use("/static", staticController);
+app.use("/", staticController);
 
 // Set up build endpoint routes
 app.use("/build", buildController);
