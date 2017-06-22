@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="js/lib/vue.js"></script>
+    <script src="js/lib/vue-router.js"></script>
     <meta charset="UTF-8">
     <title>Hello World</title>
 </head>
 <body>
-    Hello!
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>
+        <!-- use router-link component for navigation. -->
+        <!-- specify the link by passing the `to` prop. -->
+        <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
+        <router-link to="/pages/new">New Page</router-link>
+        <router-link to="/pages">Pages</router-link>
+        <router-link to="/posts">Posts</router-link>
+    </p>
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
+</div>
 </body>
+<script src="js/dist.js"></script>
 </html>

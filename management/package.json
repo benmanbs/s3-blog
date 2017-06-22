@@ -6,7 +6,9 @@
   "author": "Benjamin Shai",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node src/server.js"
+    "watch": "nodemon src/server.js --exec babel-node",
+    "build": "rollup -c",
+    "start": "yarn build && babel-node src/server.js"
   },
   "dependencies": {
     "babel-cli": "^6.24.0",
@@ -14,6 +16,14 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "properties-reader": "^0.0.15",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "vue": "^2.3.4",
+    "vue-router": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
   }
 }

@@ -63,3 +63,5 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
+# the distribution file
+management/src/public/js/dist.js
